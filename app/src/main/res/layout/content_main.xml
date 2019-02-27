@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="78dp"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="wheat image"
+        app:srcCompat="@mipmap/wheat"
+        tools:src="@mipmap/wheat" />
+
+    <TextView
+        android:id="@+id/wheat"
+        android:layout_width="78dp"
+        android:layout_height="45dp"
+
+        android:layout_marginTop="10dp"
+        android:layout_alignBottom="@+id/quantity1"
+        android:layout_centerInParent="false"
+        android:layout_marginLeft="2dp"
+        android:layout_toRightOf="@+id/image1"
+        android:text="Wheat"
+        android:textAlignment="textStart"
+        tools:layout_centerVertical="true"
+        tools:textSize="14sp" />
+
+    <ImageButton
+        android:id="@+id/sub1"
+        android:layout_width="78dp"
+        android:layout_height="45dp"
+        android:layout_toRightOf="@+id/wheat"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginTop="10dp"
+        android:focusableInTouchMode="false"
+        android:src="@mipmap/minus" />
+
+    <EditText
+        android:id="@+id/quantity1"
+        android:layout_width="78dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/sub1"
+        android:inputType="number"
+        android:text="0"
+        tools:textAlignment="center" />
+
+    <ImageButton
+        android:id="@+id/add1"
+        android:layout_width="78dp"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="-1dp"
+        android:layout_marginTop="10dp"
+
+        android:layout_toRightOf="@+id/quantity1"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="false"
+        android:src="@mipmap/plus" />
+
+
+    <ImageView
+        android:id="@+id/image2"
+        android:layout_width="78dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/image1"
+
+
+        app:srcCompat="@mipmap/pulse" />
+
+    <TextView
+        android:id="@+id/pulse"
+        android:layout_width="78dp"
+        android:layout_height="45dp"
+
+
+        android:layout_below="@+id/wheat"
+        android:layout_centerInParent="false"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="1dp"
+        android:layout_toRightOf="@+id/image2"
+        android:text="Pulse"
+        tools:layout_centerHorizontal="true"
+        android:textAlignment="textStart"
+        tools:textSize="14sp" />
+
+    <ImageButton
+        android:id="@+id/sub2"
+        android:layout_width="78dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/sub1"
+        android:layout_marginLeft="-1dp"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/pulse"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="false"
+        android:src="@mipmap/minus" />
+
+    <EditText
+        android:id="@+id/quantity2"
+        android:layout_width="78dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/quantity1"
+        android:layout_toRightOf="@+id/sub2"
+        android:inputType="number"
+        android:text="0"
+        tools:textAlignment="center" />
+
+    <ImageButton
+        android:id="@+id/add2"
+        android:layout_width="78dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/add1"
+        android:layout_toRightOf="@+id/quantity2"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="false"
+        android:src="@mipmap/plus" />
+
+
+    <Button
+        android:id="@+id/buy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/image2"
+        android:layout_alignStart="@+id/wheat"
+        android:clickable="true"
+        android:text="Buy Now" />
+
+
+</RelativeLayout>
