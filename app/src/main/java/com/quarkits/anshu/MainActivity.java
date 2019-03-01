@@ -14,14 +14,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    int integer = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -58,6 +62,31 @@ public class MainActivity extends AppCompatActivity
         });
 
     }
+
+    public void increaseInteger(View view) {
+        integer = integer + 1;
+        display(integer);
+
+    }public void decreaseInteger(View view) {
+        integer = integer - 1;
+        display(integer);
+    }
+
+
+
+    private void display(int number) {
+        EditText quantity1 = (EditText) findViewById(
+                R.id.quantity1);
+
+       int x= Integer.parseInt(quantity1.getText().toString());
+x=x+1;
+        quantity1.setText("" + x);
+
+    }
+
+
+
+
 
     @Override
     public void onBackPressed() {

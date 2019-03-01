@@ -20,5 +20,6 @@
         completions."
     </string>
     <string name="title_activity_payment">payment</string>
+    <string name="title_activity_search">search</string>
 </resources>
 

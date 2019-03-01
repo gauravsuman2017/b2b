@@ -42,6 +42,7 @@
         android:layout_height="45dp"
         android:layout_toRightOf="@+id/wheat"
         android:clickable="true"
+        android:onClick="decreaseInteger"
         android:focusable="true"
         android:layout_marginTop="10dp"
         android:focusableInTouchMode="false"
@@ -53,8 +54,8 @@
         android:layout_height="45dp"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/sub1"
+        android:hint="0"
         android:inputType="number"
-        android:text="0"
         tools:textAlignment="center" />
 
     <ImageButton
@@ -67,6 +68,7 @@
 
         android:layout_toRightOf="@+id/quantity1"
         android:clickable="true"
+        android:onClick="increaseInteger"
         android:focusable="true"
         android:focusableInTouchMode="false"
         android:src="@mipmap/plus" />
@@ -107,6 +109,7 @@
         android:layout_marginTop="0dp"
         android:layout_toRightOf="@+id/pulse"
         android:clickable="true"
+
         android:focusable="true"
         android:focusableInTouchMode="false"
         android:src="@mipmap/minus" />
@@ -117,8 +120,8 @@
         android:layout_height="45dp"
         android:layout_below="@+id/quantity1"
         android:layout_toRightOf="@+id/sub2"
+        android:hint="0"
         android:inputType="number"
-        android:text="0"
         tools:textAlignment="center" />
 
     <ImageButton
@@ -128,6 +131,7 @@
         android:layout_below="@+id/add1"
         android:layout_toRightOf="@+id/quantity2"
         android:clickable="true"
+
         android:focusable="true"
         android:focusableInTouchMode="false"
         android:src="@mipmap/plus" />

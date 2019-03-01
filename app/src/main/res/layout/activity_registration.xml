@@ -10,24 +10,24 @@
     <TextView
         android:id="@+id/heading"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35sp"
         android:text="Registration form"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:textColor="@android:color/holo_red_dark"
-        tools:textAlignment="center"
-        tools:textSize="40sp" />
+        android:textStyle="bold"
+        tools:textSize="50sp" />
 
 
     <TextView
         android:id="@+id/first_name"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+
+        android:layout_below="@+id/heading"
 
         android:layout_centerInParent="false"
-
         android:layout_marginLeft="2dp"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/heading"
         android:text="First name"
         android:textAlignment="textStart"
 
@@ -39,14 +39,14 @@
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_below="@+id/heading"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="0dp"
         android:layout_toRightOf="@+id/first_name" />
 
 
     <TextView
         android:id="@+id/last_name"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
 
         android:layout_below="@+id/first_name"
 
@@ -64,13 +64,13 @@
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_below="@+id/first_name1"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="2dp"
         android:layout_toRightOf="@+id/last_name" />
 
     <TextView
         android:id="@+id/address"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
 
         android:layout_below="@+id/last_name"
 
@@ -88,13 +88,15 @@
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_below="@+id/last_name1"
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="4dp"
         android:layout_toRightOf="@+id/address" />
+
 
     <TextView
         android:id="@+id/contact"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
 
         android:layout_below="@+id/address"
 
@@ -112,15 +114,15 @@
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_below="@+id/address1"
-        android:layout_marginTop="10dp"
-        android:inputType="number"
-        android:layout_toRightOf="@+id/contact" />
+        android:layout_marginTop="6dp"
+        android:layout_toRightOf="@+id/contact"
+        android:inputType="number" />
 
 
     <TextView
         android:id="@+id/email"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
 
         android:layout_below="@+id/contact"
 
@@ -139,15 +141,70 @@
         android:layout_height="40dp"
         android:layout_below="@+id/contact1"
         android:layout_marginLeft="2dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="1dp"
         android:layout_toRightOf="@+id/email" />
+
+    <TextView
+        android:id="@+id/password"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+
+        android:layout_below="@+id/email"
+
+        android:layout_centerInParent="false"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="10dp"
+        android:text="Password"
+        android:textAlignment="textStart"
+
+        tools:textColor="@android:color/black"
+        tools:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/password1"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/email1"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/password"
+        android:inputType="textPassword" />
+
+
+    <TextView
+        android:id="@+id/confirm_password"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+
+        android:layout_below="@+id/password"
+
+        android:layout_centerInParent="false"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="10dp"
+        android:text="Confirm password"
+        android:textAlignment="textStart"
+
+        tools:textColor="@android:color/black"
+        tools:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/confirm_password1"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/password1"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/confirm_password"
+        android:inputType="textPassword" />
+
+
 
     <Button
         android:id="@+id/register1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_below="@+id/email1"
+        android:layout_below="@+id/confirm_password"
 
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
