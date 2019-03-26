@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -31,6 +32,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,23 +78,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
-        populateAutoComplete();
-
-
-
-        mPasswordView = (EditText) findViewById(R.id.password);
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == EditorInfo.IME_ACTION_DONE || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
-                    return true;
-                }
-                return false;
-            }
-        });
-
 
 
 
@@ -99,6 +88,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             @Override
             public void onClick(View view) {
+
+
 
                 Intent intent = new Intent( LoginActivity.this, registration.class);
                 startActivity(intent);
@@ -112,8 +103,45 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent( LoginActivity.this, payment.class);
-                startActivity(intent);
+
+                mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+                populateAutoComplete();
+
+                String email=mEmailView.getText().toString();
+
+                mPasswordView = (EditText) findViewById(R.id.password);
+                String password=mPasswordView.getText().toString();
+                try {
+                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                    StrictMode.setThreadPolicy(policy);
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://148.72.232.171:3306/ecom", "eshop", "rashmi123");
+//Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/admission","root","");
+//here sonoo is database name, root is username and password
+                    //Statement stmt = con.createStatement();
+// ResultSet rs=stmt.executeQuery("select * from users");
+                    //ResultSet rs = stmt.executeQuery("select * from registration");
+                    PreparedStatement ps = con.prepareStatement("select email,password from registration where email=? and password=?");
+                    ps.setString(1, email);
+                    ps.setString(2, password);
+
+                    ResultSet rs = ps.executeQuery();
+
+
+
+                    while (rs.next()) {
+
+                        Intent intent = new Intent(LoginActivity.this, payment.class);
+                        startActivity(intent);
+                        Toast.makeText(getBaseContext(), "login success", Toast.LENGTH_LONG).show();
+                    }
+                    Toast.makeText(getBaseContext(), "invalid id or password", Toast.LENGTH_LONG).show();
+
+                }catch(Exception e){
+                    Toast.makeText(getBaseContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+
+
 
             }
         });
